@@ -67,7 +67,7 @@ import {
                 Instagram
               </a>
             </Button>
-  
+   
             <Button variant={'link'} colorScheme={'white'}>
               <a target={'black'} href="https://github.com/meabhisingh">
                 Github
