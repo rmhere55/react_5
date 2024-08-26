@@ -5,6 +5,7 @@ import Marquee from './components/Marquee'
 import About from './components/About'
 import Footer from './components/Footer'
 import Eyes from './components/Eyes'
+import Cards from './components/Cards'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
     <Marquee />
       <About/>
       <Eyes/>
+      <Cards/>
        <Footer/>
     </div>
   )

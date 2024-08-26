@@ -1,9 +1,42 @@
 // import React from 'react'
 import { FaArrowUpLong } from "react-icons/fa6";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
+import { useState } from "react";
+
 
 function About() {
+  const controls = useAnimation();
+  const [scrollY, setScrollY] = useState(0);
+
+  const handleScroll = () => {
+    const scrollPos = window.scrollY;
+    setScrollY(scrollPos);
+
+    // Calculate new height and position based on scroll position
+    let newHeight = 20 + scrollPos / 10; // Adjust the divisor for the desired effect
+    if (newHeight > 100) newHeight = 100; // Cap the height at 100%
+
+    controls.start({
+      height: `${newHeight}vh`,
+      y: -scrollPos / 5, // Adjust the divisor to push the text upward
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="W-full py-20 px-[4.5vw] text-black bg-[#CDEA68] rounded-t-3xl ">
+    <motion.div
+    data-scroll
+    data-scroll-section
+    data-scroll-speed=".2"
+    
+    className="W-full py-20 px-[4.5vw] text-black bg-[#CDEA68] rounded-t-3xl ">
     <h1 className="text-[3.5vw] leading-[4vw] tracking-tight pb-[3vw]">
       Ochi is a strategic partner for fast-grow­ing tech <br /> businesses
       that need to <u>raise funds</u>, <u>sell prod­ucts</u>,
@@ -120,7 +153,7 @@ function About() {
     </div>
 
 
-    </div>
+    </motion.div>
   )
 }
 

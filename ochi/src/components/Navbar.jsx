@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { motion } from "framer-motion";
 
 
@@ -43,7 +43,7 @@ const Navbar = () => {
         </svg>
       </div>
 
-      <div className="links flex gap-5">
+      <div className="links flex gap-5 ">
         {["Services", "Our Work", "About Us", "Insights", "Contact Us"].map(
           (item, index) => (
             <motion.a
