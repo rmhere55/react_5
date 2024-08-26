@@ -75,14 +75,14 @@ const Footer = () => {
         <h1>L:</h1>
         <br />
         <a className="block" href="#">
-          <u>202-1965 W 4th Ave</u>
+          <u>S.A.S Nagar Mohali</u>
           <br />
-          <u>Vancouver, Canada</u>
+          <u>Punjab</u>
         </a>
         <a className="block pt-2" href="#">
-          <u>30 Chukarina St</u>
+          <u>Chandighar</u>
           <br />
-          <u>Lviv, Ukraine</u>
+          <u>India</u>
         </a>
       </div>
       <br />
@@ -92,7 +92,7 @@ const Footer = () => {
         <h1>E:</h1>
         <br />
         <a className="block" href="#">
-          <u>hello@rahul.design</u>
+          <u>rajlaxmi79812@gmail.com</u>
         </a>
       </div>
       <br />
