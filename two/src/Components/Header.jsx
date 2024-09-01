@@ -27,6 +27,8 @@ const Header = () => {
         h={'10'}
         borderRadius={'full'}
         onClick={onOpen}
+    zIndex={'overlay'}
+        
       >
         <BiMenuAltLeft size={'20'} />
       </Button>
@@ -41,7 +43,7 @@ const Header = () => {
                 <Link to={'/'}>Home</Link>
               </Button>
               <Button colorScheme='purple' variant={'ghost'} onClick={onClose}>
-                <Link to={'/'}>VIDEO</Link>
+                <Link to={'/Video'}>VIDEO</Link>
               </Button>
               <Button colorScheme='purple' variant={'ghost'} onClick={onClose}>
                 <Link to={'/free-video'}>Free VIDEO</Link>
@@ -59,8 +61,9 @@ const Header = () => {
               w={'full'}
               justifyContent={'space-evenly'}
               left={'0'}
+              zIndex={1}
             >
-              <Button colorScheme='purple' variant={'outline'} onClick={onClose}>
+              <Button colorScheme='purple'  onClick={onClose}>
                 <Link to={'/login'}>Log in</Link>
               </Button>
               <Button colorScheme='purple' variant={'outline'} onClick={onClose}>
