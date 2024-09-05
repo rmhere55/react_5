@@ -71,7 +71,7 @@ import { motion } from 'framer-motion';
 
 const Home2 = () => {
   return (
-    <Container maxW={'full'} p={0} m={0}>
+    <Container maxW={'full'} p={0} m={0} overflow={'hidden'}>
       <Box bgColor={'blackAlpha.900'} w={'full'} h={'120vh'} p={8}>
         {/* Flex container for image and text */}
         <Flex
