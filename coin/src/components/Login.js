@@ -9,7 +9,7 @@ const Login = () => {
         <VStack 
           alignItems={'stretch'}
           spacing={8}
-          w={'full  , 96'}
+          w={'full , 96'}
           m={'auto'}
           my={16}
         >
@@ -19,24 +19,24 @@ const Login = () => {
             placeholder="Email" 
             type="email" 
             required 
-            focusBorderColor="purple.500" 
+            focusBorderColor="teal.300" 
           />
 
           <Input 
             placeholder="Password" 
             type="password" 
             required 
-            focusBorderColor="purple.500" 
+            focusBorderColor="teal.300" 
           />
 
           <Button variant={'link'} alignSelf={'flex-end'}>
             <Link to={'/forgetpassword'}>Forget Password?</Link>
           </Button>
 
-          <Button colorScheme="purple" type="submit">Log In</Button>
+          <Button colorScheme="teal" type="submit">Log In</Button>
           
           <Text textAlign={'right'}>New User? 
-            <Button variant={'link'} colorScheme="purple" ml={2}>
+            <Button variant={'link'} colorScheme="teal" ml={2}>
               <Link to={'/signup'}>Sign Up</Link>
             </Button>
           </Text>

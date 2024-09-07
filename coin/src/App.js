@@ -5,7 +5,9 @@ import Home from './components/Home';
 import Coins from './components/Coins';
 import Exchange from './components/Exchange';
 import CoinDetails from './components/CoinDetails';
-// import Footer, { githubInfoLoader } from './components/Footer';
+import Login from './components/Login';
+import SignUp from './components/SignUp';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
@@ -18,12 +20,11 @@ const App = () => {
         <Route path='/coins' element={<Coins />} />
         {/* <Route 
       element={<Footer />} */}
+      <Route path="/login" element={<Login/>}/>
+      <Route path="/signup" element={<SignUp/>}/>
       
       </Routes>
-      {/* <Footer
-       loader={githubInfoLoader}
-       path='github' 
-      /> */}
+      <Footer />
     </Router>
   );
 };

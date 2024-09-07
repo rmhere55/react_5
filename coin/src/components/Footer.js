@@ -1,45 +1,52 @@
-import { Avatar, Box, Image, Stack, Text, VStack } from "@chakra-ui/react";
 import React from "react";
-import { useLoaderData } from 'react-router-dom';
-
-const avatarSrc = "https://api.github.com/users/rmhere55";
+import { Box, Heading, Text, Link, VStack, HStack, Icon } from "@chakra-ui/react";
+import { FaLinkedin, FaInstagram, FaGithub } from "react-icons/fa";
 
 const Footer = () => {
-  const data = useLoaderData();  // Move useLoaderData inside the component
-
   return (
     <Box
-      bgColor={"blackAlpha.900"}
-      color={"whiteAlpha.700"}
-      minH={"48"}
-      px={"16"}
-      py={["16", "8"]}
+      as="footer"
+      bgGradient="linear(to-r, blackAlpha.800, blackAlpha.700)"
+      color="white"
+      bgColor="blackAlpha.900"
+      py="8"
+      px="4"
+      mt="0" 
+      
     >
-      <Stack direction={["column", "row"]} h={"full"} alignItems={"center"}>
-        <VStack w={"full"} alignItems={["center", "flex-start"]}>
-          <Text fontWeight={"bold"}>About Us</Text>
-          <Text
-            fontSize={"sm"}
-            letterSpacing={"widest"}
-            textAlign={["center", "left"]}
-          >
-            We are the best crypto trading app in India, we provide our guidance
-            at a very cheap price.
+      <VStack spacing="6" textAlign="center">
+        <Box>
+          <Heading size="lg" fontWeight="bold" mb="2" color="teal.300">
+            WolfX Coin
+          </Heading>
+          <Text fontSize="sm" color="gray.300">
+            &copy; {new Date().getFullYear()} All rights reserved
           </Text>
-        </VStack>
+        </Box>
 
-        <VStack>
-          <Image boxSize={"28"} mt={["4", "0"]} src={avatarSrc.avatar_url} />
-          <Text>Our Founder</Text>
-        </VStack>
-      </Stack>
+        <Box>
+          <Heading size="sm" mb="4" color="teal.400">
+            Follow Us
+          </Heading>
+          <HStack spacing="6">
+            <Link
+              href="https://www.linkedin.com/in/raj-laxmi-singh-4965b7232?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+              isExternal
+              _hover={{ color: "teal.300" }}
+            >
+              <Icon as={FaLinkedin} w={6} h={6} />
+            </Link>
+            <Link href="https://instagram.com/hyy_r.m" isExternal _hover={{ color: "teal.300" }}>
+              <Icon as={FaInstagram} w={6} h={6} />
+            </Link>
+            <Link href="https://github.com/rmhere55" isExternal _hover={{ color: "teal.300" }}>
+              <Icon as={FaGithub} w={6} h={6} />
+            </Link>
+          </HStack>
+        </Box>
+      </VStack>
     </Box>
   );
 };
 
 export default Footer;
-
-export const githubInfoLoader = async () => {
-  const response = await fetch('https://api.github.com/users/rmhere55');
-  return response.json();
-};
