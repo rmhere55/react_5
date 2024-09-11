@@ -53,3 +53,15 @@
           transform: translateY(-10px);
       }
   }
+
+  @media (min-width: 768px) {
+    .text {
+      font-size: 24px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .text {
+      font-size: 36px;
+    }
+  }

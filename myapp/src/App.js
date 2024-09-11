@@ -30,3 +30,4 @@ function App() {
 }
 
 export default App;
+// reduct is like ek jagha aap
