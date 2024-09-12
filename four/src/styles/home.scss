@@ -1,0 +1,183 @@
+
+// @import "colors";
+
+// .home {
+//   display: flex;
+//   padding: 3rem;
+//   justify-content: center;
+//   flex-wrap: wrap;
+// }
+
+// .productCard {
+//   background-color: $tertiary;
+//   width: 270px;
+//   margin: 2rem;
+//   border-radius: 5px;
+//   padding: 2rem;
+//   transition: all 0.5s;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+
+//   img {
+//     width: 100%;
+//     height: 200px;
+//     object-fit: cover;
+//   }
+
+//   h4 {
+//     margin: 1rem;
+//     color: black;
+//   }
+//   p{
+//     color: black;
+
+//   }
+
+//   button {
+//     cursor: pointer;
+//     background-color: $secondary;
+//     border: none;
+//     padding: 1rem;
+//     color: $tertiary;
+//     border-radius: 5px;
+//     transition: all 0.5s;
+//     font-weight: 500;
+//     width: 100%;
+//     &:hover {
+//       background-color: $secondarydark;
+//     }
+//   }
+//   &:hover {
+//     transform: scale(1.05);
+//   }
+// }
+
+@import "colors";
+
+.home {
+  display: flex;
+  padding: 3rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.productCard {
+  background-color: $tertiary;
+  width: 270px;  // Slightly increased width for better content display
+  margin: 2rem;
+  border-radius: 10px;  // More rounded corners for a modern look
+  padding: 1.5rem;
+  transition: all 0.4s ease;  // Smoother transition effect
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);  // Adds a subtle shadow for depth
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    width: 100%;
+    height: 200px;  // Limit the image height to make all cards uniform
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: black;
+    font-weight: 600;
+    margin: 1rem 0 0.5rem;
+  }
+
+  h4 {
+    margin: 0.5rem 0 1rem;
+    color: $secondarydark;
+  }
+
+  .button-container {
+    display: flex;
+    gap: 0.5rem;  // Creates space between buttons
+    width: 100%;
+    justify-content: space-between;  // Even spacing between buttons
+  }
+
+  button {
+    cursor: pointer;
+    background-color: $secondary;
+    border: none;
+    padding: 0.75rem 1rem;
+    color: $tertiary;
+    border-radius: 5px;
+    font-weight: 500;
+    width: 48%;  // Adjust width to take up half the container each
+    text-align: center;
+    transition: background-color 0.4s, transform 0.2s;
+
+    &:hover {
+      background-color: $secondarydark;
+      transform: scale(1.05);  // Adds a subtle zoom on hover
+    }
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);  // Shadow on hover
+  }
+}
+
+
+
+
+
+
+
+
+.product-form {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    width: 300px;
+    margin: auto; 
+    color: black;
+  }
+  
+  .product-form div {
+    margin-bottom: 1rem;
+  }
+  
+  .product-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .product-form input,
+  .product-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .product-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .productCard {
+    background-color: #fff;
+    width: 300px;
+    margin: 1rem;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .productCard img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
