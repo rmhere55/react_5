@@ -23,6 +23,9 @@
 // };
 
 // export default ProductList;
+
+
+
 import React from 'react';
 
 const ProductList = ({ products }) => {
@@ -32,9 +35,9 @@ const ProductList = ({ products }) => {
         <p>No products available.</p>
       ) : (
         products.map((product) => (
-          <div className="product-card" key={product.id}>
+          <div className="productCard" key={product.id}>
             <img src={product.imgSrc} alt={product.name} />
-            <h3>{product.name}</h3>
+            <h3  style={{color: 'black'}}>{product.name}</h3>
             <p>{product.description}</p>
             <p>Price: ₹{product.price}</p>
             <p>Small: {product.small} | Medium: {product.meduim} | Large: {product.large}</p>
@@ -44,5 +47,17 @@ const ProductList = ({ products }) => {
     </div>
   );
 };
+
+
+// const ProductCard = ({ name, id, price, handler, imgSrc }) => (
+//     <div className="productCard">
+//       <img src={imgSrc} alt={name} />
+//       <p>{name}</p>
+//       <h4>${price}</h4>
+//       <button onClick={() => handler({ name, price, id, quantity: 1, imgSrc })}>
+//         Add to Cart
+//       </button>
+//     </div>
+//   );
 
 export default ProductList;

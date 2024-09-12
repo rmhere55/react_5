@@ -85,23 +85,39 @@
 // };
 
 // export default Home;
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
+// import ProductList from './ProductList';
+
+// const Home = ({{products , addProductHandler}}) => {
+//   // const [products, setProducts] = useState([]);
+
+//   // Function to receive new products from the form (coming from a different file/component)
+//   const addProductHandler = (newProduct) => {
+//     setProducts((prevProducts) => [...prevProducts, newProduct]);
+//   };
+
+//   return (
+//     <div className="home">
+//       {/* Only display ProductList, no ProductForm here */}
+//       <ProductList products={products} />
+//     </div>
+//   );
+// };
+
+// export default Home;
+
+
+
+import React from 'react';
 import ProductList from './ProductList';
 
-const Home = () => {
-  const [products, setProducts] = useState([]);
-
-  // Function to receive new products from the form (coming from a different file/component)
-  const addProductHandler = (newProduct) => {
-    setProducts((prevProducts) => [...prevProducts, newProduct]);
-  };
-
+const Home = ({ products, addProductHandler }) => {
   return (
     <div className="home">
-      {/* Only display ProductList, no ProductForm here */}
       <ProductList products={products} />
     </div>
   );
 };
 
 export default Home;
+
