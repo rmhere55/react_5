@@ -9,11 +9,13 @@ const Header = () => {
         <div>
             <Link to={'/'}>Home</Link>
             <Link to={'/product'}>Product</Link>
+            <Link to={'/buy_now'}>Buy Now</Link>
             <Link to={'/cart'}>
             
             <FiShoppingBag/>
             <p>{0}</p>
             </Link>
+
         </div>
     </nav>
   )
