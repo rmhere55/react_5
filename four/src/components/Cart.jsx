@@ -1,70 +1,92 @@
 
-
-
-// import React from 'react';
-
-// const Cart = ({ cartItems }) => {
-//   return (
-//     <div className="cart">
-//       <h2>Your Cart</h2>
-//       {cartItems.length === 0 ? (
-//         <p>Your cart is empty.</p>
-//       ) : (
-//         cartItems.map((item) => (
-//           <div key={item.id} className="cart-item">
-//             <img src={item.imgSrc} alt={item.name} />
-//             <h3>{item.name}</h3>
-//             <p>Price: ₹{item.price}</p>
-//             <p>Quantity: {item.quantity}</p>
-//           </div>
-//         ))
-//       )}
-//     </div>
-//   );
-// };
-
-// export default Cart;
 import React, { useContext } from 'react';
 import CartContext from '../Context/cartcontext';
 import { useNavigate } from 'react-router-dom';
+import '../styles/cart.scss'; // Import the SCSS file
 
 const Cart = () => {
-  const { cart, totalAmountCart, removeItem, clearCart , buyItem} = useContext(CartContext); // Access cart and methods
+  const { cart, totalAmountCart, setBuy, removeItem, clearCart, buyItem , buy , updateQuantity } = useContext(CartContext);
   const navigate = useNavigate();
 
-  const productBuyHandler = (item) =>{
-    console.log(item);
-  buyItem( item )
-    navigate('/buy_now')
-  }
+  const productBuyHandler = (item) => {
+    buyItem(item);
+    navigate('/buy_now');
+  };
+
+  const buyAllHandler = () => {
+    setBuy([...cart]);
+    clearCart();
+    navigate('/buy_now');
+  };
+
+  const increaseQuantity = (item) => {
+    updateQuantity(item.id, item.quantity + 1);
+  };
+
+  const decreaseQuantity = (item) => {
+    if (item.quantity > 1) {
+      updateQuantity(item.id, item.quantity - 1);
+    }
+  };
   return (
-    <div className="product-list">
-      <h2 style={{ textAlign: 'center',
-    marginBottom: '20px'}}>Your Cart</h2>
+
+    <div className="cart-container">
+    <div className="product-details">
+      <h2>Product Details</h2>
       {cart.length === 0 ? (
-        <p style={{color:'white'}}>Your cart is empty.</p>
+        <p>Your cart is empty.</p>
       ) : (
         cart.map((item) => (
-          <div key={item.id} className="productCard">
+          <div key={item.id} className="cart-item">
             <img src={item.imgSrc} alt={item.name} />
-            <h3>{item.name}</h3>
-            <p>Price: ₹{item.price}</p>
-            <p>Quantity: {item.quantity}</p>
-            <div  className="button-container">
-            <button onClick={()=>productBuyHandler(item)}>Buy Now</button>
-
-            <button onClick={() => removeItem(item.id)}>Remove</button>
-
+            <div className="item-info">
+              <h3>{item.name}</h3>
+              <p>{item.description}</p>
+              {/* <p>₹{item.price}</p> */}
+              <div className="quantity-control">
+                <h5>Quantity  :- </h5>
+                  <button onClick={() => decreaseQuantity(item)}>-</button>
+                  <span>{item.quantity}</span>
+                  <button onClick={() => increaseQuantity(item)}>+</button>
+                </div>
+                <p>Total: ₹{item.price * item.quantity}</p>
+                <div className="item-actions">
+                  <button onClick={() => productBuyHandler(item)}>Buy Now</button>
+                  <button onClick={() => removeItem(item.id)}>Remove</button>
+                </div>
             </div>
           </div>
         ))
       )}
+    </div>
 
-      <div className=" price-details">
-      <h3>Total Amount: ₹{totalAmountCart}</h3>
-      <button onClick={clearCart}>Clear Cart</button>
+    <div className="price-summary">
+      <h3>Price Details ({cart.length} {cart.length === 1 ? 'Item' : 'Items'})</h3>
+      <div className="summary-row">
+        <p>Total Product Price</p>
+        <p>₹{totalAmountCart}</p>
+      </div>
+      <div className="summary-row">
+        <p>Discount</p>
+        <p>- ₹   
+        {cart.reduce((acc, item) => acc + item.discount || 0, 10)}
+
+
+        </p>
+      </div>
+      <div className="summary-row total">
+        <p>Order Total</p>
+        <p>₹{totalAmountCart
+          -
+          cart.reduce((acc, item) => acc + item.discount || 10, 0)
+          }</p>
+      </div>
+      <div className="action-buttons">
+        <button onClick={clearCart} className="clear-btn">Clear Cart</button>
+        <button onClick={buyAllHandler} className="buy-all-btn">Buy All</button>
       </div>
     </div>
+  </div>
   );
 };
 

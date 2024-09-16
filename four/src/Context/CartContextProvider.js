@@ -13,9 +13,30 @@ const CartContextProvider = ({ children }) => {
 
 
 
+  // const addItemToCart = (item) => {
+  //   setCart((prevCart) => [...prevCart, item]);
+  // };
+
+
+
   const addItemToCart = (item) => {
-    setCart((prevCart) => [...prevCart, item]);
+    setCart((prevCart) => {
+      const itemInCart = prevCart.find((cartItem) => cartItem.id === item.id);
+      
+      if (itemInCart) {
+        // Increase the quantity if item is already in the cart
+        return prevCart.map((cartItem) =>
+          cartItem.id === item.id
+            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            : cartItem
+        );
+      } else {
+        // Add new item with initial quantity
+        return [...prevCart, { ...item, quantity: 1 }];
+      }
+    });
   };
+  
   // const buyItemTobuynow = (item) => {
   //   setBuy((prevCart) => [...prevCart, item]);
   // };

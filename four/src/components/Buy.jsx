@@ -40,7 +40,7 @@ const Buy = () => {
   };
 
   const buyItemHandler = () =>{
-    alert(`Your order has been placed and your order number is ${Math.random().toFixed(2)}`);
+    alert(`Your order has been placed and your order number is ${Math.floor(Math.random()*1000000000)} `);
     setBuy([])
     navigate('/')
   }
@@ -63,8 +63,8 @@ const Buy = () => {
                 <div style={{display: 'flex'  }}>
                   <h3>{item.name}</h3>
                   {/* <p>Size: Free Size • Qty: {item.quantity}</p> */}
-                  <p>Select Size:</p>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '25px' }}>
+                  <p> Size:</p>
                     {item.availableSizes.small && (
                       <label>
                         <input
@@ -129,6 +129,7 @@ const Buy = () => {
         <h3>
           Price Details ({buy.length} {buy.length === 1 ? "Item" : "Items"})
         </h3>
+        
         <div className="price-breakdown">
           <p>Total Product Price: ₹{totalAmountBuy}</p>
           <p>
@@ -139,7 +140,7 @@ const Buy = () => {
         <h3>
           Order Total: ₹
           {totalAmountBuy -
-            buy.reduce((acc, item) => acc + item.discount || 0, 0)}
+            buy.reduce((acc, item) => acc + item.discount || 10, 0)}
         </h3>
         <button className="continue-btn" onClick={buyItemHandler}>buy</button>
       </div>

@@ -1,8 +1,15 @@
-import React from 'react'
+import React ,{useContext} from 'react'
 import { Link } from 'react-router-dom'
 import {FiShoppingBag} from 'react-icons/fi'
 
+import CartContext from '../Context/cartcontext';
+
+
 const Header = () => {
+
+  const { cart, totalAmountCart, removeItem, clearCart , buyItem} = useContext(CartContext);
+  const totalCartItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+
   return (
     <nav>
         <h2> Logo</h2>
@@ -11,9 +18,10 @@ const Header = () => {
             <Link to={'/product'}>Product</Link>
             <Link to={'/buy_now'}>Buy Now</Link>
             <Link to={'/cart'}>
-            
             <FiShoppingBag/>
-            <p>{0}</p>
+            {/* Cart */}
+
+            <p>{totalCartItems}</p>
             </Link>
 
         </div>
