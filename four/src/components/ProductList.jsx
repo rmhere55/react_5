@@ -19,7 +19,7 @@ const ProductList = ({ products }) => {
         products.map((product) => (
           <div className="productCard" key={product.id}>
             <img src={product.imgSrc} alt={product.name} />
-            <h3>{product.name}</h3>
+            <h3 style={{color: 'black'}}>{product.name}</h3>
              <p>{product.description}</p>
             <p>Price: ₹{product.price}</p>
       <div className=" button-container">

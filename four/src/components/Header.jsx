@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <nav>
-        <h2> Logo</h2>
+        <h2> T/X</h2>
         <div>
             <Link to={'/'}>Home</Link>
             <Link to={'/product'}>Product</Link>
