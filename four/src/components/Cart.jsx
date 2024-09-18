@@ -10,6 +10,7 @@ const Cart = () => {
 
   const productBuyHandler = (item) => {
     buyItem(item);
+    // clearCart()
     navigate('/buy_now');
   };
 
@@ -61,7 +62,7 @@ const Cart = () => {
     </div>
 
     <div className="price-summary">
-      <h3>Price Details ({cart.length} {cart.length === 1 ? 'Item' : 'Items'})</h3>
+      <h3 style={{color : 'black'}}>Price Details ({cart.length} {cart.length === 1 ? 'Item' : 'Items'})</h3>
       <div className="summary-row">
         <p>Total Product Price</p>
         <p>₹{totalAmountCart}</p>

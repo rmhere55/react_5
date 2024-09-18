@@ -10,15 +10,6 @@ const CartContextProvider = ({ children }) => {
   const addProduct = (newProduct) => {
     setProducts((prevProducts) => [...prevProducts, newProduct]);
   };
-
-
-
-  // const addItemToCart = (item) => {
-  //   setCart((prevCart) => [...prevCart, item]);
-  // };
-
-
-
   const addItemToCart = (item) => {
     setCart((prevCart) => {
       const itemInCart = prevCart.find((cartItem) => cartItem.id === item.id);
@@ -36,10 +27,6 @@ const CartContextProvider = ({ children }) => {
       }
     });
   };
-  
-  // const buyItemTobuynow = (item) => {
-  //   setBuy((prevCart) => [...prevCart, item]);
-  // };
   const buyItemTobuynow = (item) => {
     setBuy((prevCart) => {
       // Check if the item already exists in the cart
@@ -58,9 +45,6 @@ const CartContextProvider = ({ children }) => {
       }
     });
   };
-  
-
-
   const removeItemFromCart = (id) => {
     setCart((prevCart) => prevCart.filter(item => item.id !== id));
   };

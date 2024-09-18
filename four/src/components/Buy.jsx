@@ -9,7 +9,8 @@ const Buy = () => {
   console.log(buy);
   const navigate = useNavigate();
 
-  const [selectedSize, setSelectedSize] = useState({}); // To store selected size per product
+  const [selectedSize, setSelectedSize] = useState({}); 
+  // To store selected size per product
 
   // Handler for changing the selected size
   const handleSizeChange = (productId, size) => {
@@ -30,8 +31,7 @@ const Buy = () => {
 
   // Handler to decrease the quantity of an item (minimum is 1)
   const handleDecreaseQuantity = (itemId) => {
-    setBuy((prevBuy) =>
-      prevBuy.map((item) =>
+    setBuy((prevBuy) => prevBuy.map((item) =>
         item.id === itemId && item.quantity > 1
           ? { ...item, quantity: item.quantity - 1 }
           : item

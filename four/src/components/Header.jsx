@@ -7,7 +7,7 @@ import CartContext from '../Context/cartcontext';
 
 const Header = () => {
 
-  const { cart, totalAmountCart, removeItem, clearCart , buyItem} = useContext(CartContext);
+  const { cart} = useContext(CartContext);
   const totalCartItems = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
